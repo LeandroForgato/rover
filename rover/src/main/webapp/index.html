@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-ng-app="rover">
+<head>
+<meta charset="utf-8">
+<title>My AngularJS App</title>
+<link rel="stylesheet" href="css/app.css" />
+<link rel="stylesheet" href="css/bootstrap.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body data-ng-controller="MyCtrl1">
+
+	<form class="cf">
+		<div class="cf">
+			<img src="img/nasaLogo-570x450.png" alt="nasa" height="200" width="252" style="margin-bottom: 28px;">
+		</div>
+
+		<div class="cf">
+			<label>Plateau Size</label>
+			<div ng-show="platError" style="color: red">{{platErrorMsg}}</div>
+			<input ng-model="instructions.plat" type="text" dir-plat id="plateau" placeholder="0 1">
+		</div>
+		<div class="half left cf">
+			<h3>ROVER 1</h3>
+			<label>Init. Position</label>
+			<div ng-show="pos1Error" style="color: red">{{pos1ErrorMsg}}</div>
+			<input ng-model="instructions.pos1" type="text" dir-position id="iPosition" placeholder="0 0 N"> <label>Instruction</label><input
+				ng-model="instructions.inst1" type="text" dir-instruction id="instruction" placeholder="LRMLRM">
+		</div>
+		<div class="half right cf">
+			<h3>ROVER 2</h3>
+			<label>Init. Position</label>
+			<div ng-show="pos2Error" style="color: red">{{pos2ErrorMsg}}</div>
+			<input ng-model="instructions.pos2" type="text" dir-position id="iPosition" placeholder="0 0 N"><label>Instruction</label><input
+				ng-model="instructions.inst2" type="text" dir-instruction id="instruction" placeholder="LRMLRM">
+		</div>
+		<button ng-click="drop()" class="btn btn-primary btn-block btn-large" style="margin-bottom: 10px">Drop</button>
+		<div class="half left cf">
+			<label>Final Position</label> <input disabled="disabled" ng-model="finalposition.finalPos1" type="text"
+				id="finalPosition" placeholder="0 0 N">
+		</div>
+		<div class="half right cf">
+			<label>Final Position</label> <input disabled="disabled" ng-model="finalposition.finalPos2" type="text"
+				id="finalPosition" placeholder="0 0 N">
+		</div>
+	</form>
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-resource.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/filters.js"></script>
+	<script src="js/directives.js"></script>
+</body>
+</html>
