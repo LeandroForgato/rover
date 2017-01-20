@@ -13,8 +13,8 @@ public class Rover {
     boolean left = true;
 
     public Rover() {}
-    
-    
+
+
 
     public Integer getCollision() {
         return collision;
@@ -106,7 +106,7 @@ public class Rover {
         }
 
         String resp = x + " " + y + " " + dir;
-        
+
         if (x > px || x < 0 || y > py || y < 0) {
             left = false;
             resp = "Rover left the area of ​​the plateau";
