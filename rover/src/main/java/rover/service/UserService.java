@@ -28,7 +28,7 @@ public class UserService {
         posRover1 = finalResponse.getFinalPos1().trim().split(" ");
         if (collision == 1) {
             finalResponse.setFinalPos1(
-                    "Stoped at (" + posRover1[0] + " " + posRover1[1] + " " + posRover1[2] + ") to avoid colision");
+                    "Stoped at (" + posRover1[0] + " " + posRover1[1] + " " + posRover1[2] + ") to avoid collision");
         }
 
         if (!finalResponse.getFinalPos1().startsWith("R")) {
@@ -42,7 +42,7 @@ public class UserService {
         collision = rover.getCollision();
         if (collision == 1) {
             finalResponse.setFinalPos2(
-                    "Stoped at (" + posRover2[0] + " " + posRover2[1] + " " + posRover2[2] + ") to avoid colision");
+                    "Stoped at (" + posRover2[0] + " " + posRover2[1] + " " + posRover2[2] + ") to avoid collision");
         }
         return finalResponse;
     }
