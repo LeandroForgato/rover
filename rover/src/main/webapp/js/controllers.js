@@ -91,6 +91,15 @@ app.controller('MyCtrl1', [ '$scope', 'UserFactory', '$http', '$window', functio
                     req = true;
                 }
             }
+            if (req === false) {
+                if (sPos1[0] === sPos2[0] && sPos1[1] === sPos2[1]) {
+                    $scope.pos1ErrorMsg = "No space for both";
+                    $scope.pos1Error = true;
+                    $scope.pos2ErrorMsg = "No space for both";
+                    $scope.pos2Error = true;
+                    req = true;
+                }
+            }
 
         }
         return req;
@@ -163,5 +172,3 @@ app.directive('dirInstruction', function($window) {
         }
     };
 });
-
-

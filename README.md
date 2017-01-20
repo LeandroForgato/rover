@@ -2,6 +2,9 @@
 A simple Maven project, using AngularJS and a RESTful (Jersey-JAX-RS).
 Where position and command coordinates are inserted, in order to receive the final position of the object in space.
 
+# update
+Collision control - Rovers can not be released in the same place, and can not cross (stop and ignores the rest of the instructions)
+
 ## Installation
 Recommended use of Maven.
 

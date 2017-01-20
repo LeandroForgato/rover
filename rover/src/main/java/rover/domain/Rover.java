@@ -7,8 +7,24 @@ public class Rover {
     Integer facing = 1;
     Integer px = 0;
     Integer py = 0;
+    Integer collision = 0;
+    Integer otherX = 0;
+    Integer otherY = 0;
+    boolean left = true;
 
     public Rover() {}
+    
+    
+
+    public Integer getCollision() {
+        return collision;
+    }
+
+
+    public void setOther(Integer ox, Integer oy) {
+        this.otherX = ox;
+        this.otherY = oy;
+    }
 
     public void setPlateau(Integer px, Integer py) {
         this.px = px;
@@ -19,6 +35,7 @@ public class Rover {
         this.x = x;
         this.y = y;
         this.facing = facing;
+        this.collision = 0;
     }
 
     public void move(String commands) {
@@ -28,24 +45,42 @@ public class Rover {
     }
 
     private void move(Character command) {
-        if (command.equals('L')) {
-            turnLeft();
-        } else if (command.equals('R')) {
-            turnRight();
-        } else if (command.equals('M')) {
-            move();
+        if (collision == 0) {
+            if (command.equals('L')) {
+                turnLeft();
+            } else if (command.equals('R')) {
+                turnRight();
+            } else if (command.equals('M')) {
+                move();
+            }
         }
     }
 
     private void move() {
         if (facing == 1) {
             this.y++;
+            if (left && x == otherX && y == otherY) {
+                collision = 1;
+                this.y--;
+            }
         } else if (facing == 2) {
             this.x++;
+            if (left && x == otherX && y == otherY) {
+                collision = 1;
+                this.x--;
+            }
         } else if (facing == 3) {
             this.y--;
+            if (left && x == otherX && y == otherY) {
+                collision = 1;
+                this.y++;
+            }
         } else if (facing == 4) {
             this.x--;
+            if (left && x == otherX && y == otherY) {
+                collision = 1;
+                this.x++;
+            }
         }
     }
 
@@ -71,8 +106,9 @@ public class Rover {
         }
 
         String resp = x + " " + y + " " + dir;
-
+        
         if (x > px || x < 0 || y > py || y < 0) {
+            left = false;
             resp = "Rover left the area of ​​the plateau";
         }
         return resp;
