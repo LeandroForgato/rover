@@ -1,11 +1,11 @@
-## rover
+# rover
 A simple Maven project, using AngularJS and a RESTful (Jersey-JAX-RS).
-Where they are inserted coodernadas of position and commands, in order to receive the final position of the objects in the space.
+Where position and command coordinates are inserted, in order to receive the final position of the object in space.
 
-# Installation
+## Installation
 Recommended use of Maven.
 
-# Dependencies
+## Dependencies
 ```
 		<!-- javax: XML binding -->
         <dependency>
@@ -40,5 +40,5 @@ Recommended use of Maven.
             <scope>test</scope>
         </dependency>
 ```		
-# Tests
+## Tests
 Tested on Tomcat v9.0 Server at localhost
